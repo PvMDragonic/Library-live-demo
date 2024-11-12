@@ -1,0 +1,208 @@
+@import '../utilities/variables';
+@import '../utilities/mixins';
+
+.edit-tags 
+{
+    width: 100%;
+    height: calc(100vh - 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--lm
+    {
+        background-color: $color_white;
+    }
+
+    &--dm
+    {
+        background-color: $color_very_dark_grey;
+    }
+
+    &__container
+    {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        border-radius: 0.5rem;
+        min-width: 10rem;
+        max-width: 45rem;
+        height: 80%;
+        width: 70%;
+        gap: 0.75rem;
+        
+        &--lm 
+        {
+            background-color: $color_white;
+            border: 0.1rem solid $color_light_grey;
+            box-shadow: 0.4rem 0.4rem 0.4rem $color_light_grey;
+
+            &::-webkit-scrollbar-thumb 
+            { 
+                background-color: $color_cyan;
+            }
+
+            @-moz-document url-prefix() 
+            {
+                scrollbar-color: $color_cyan $color_invisible;
+            }
+
+            & h2
+            {
+                color: $color_light_black;
+            }
+        }
+
+        &--dm
+        {
+            background-color: $color_mildly_dark_grey;
+            border: 0.1rem solid $color_immensily_dark_grey;
+            box-shadow: 0.4rem 0.4rem 0.4rem $color_immensily_dark_grey;
+
+            &::-webkit-scrollbar-thumb 
+            { 
+                background-color: $color_light_grey;
+            }
+
+            @-moz-document url-prefix() 
+            {
+                scrollbar-color: $color_light_grey $color_invisible;
+            }
+
+            & > div:first-of-type
+            {
+                @include search-bar-dm-override();
+            }
+
+            & h2
+            {
+                color: $color_dark_white;
+            }
+        }
+
+        & h2
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            opacity: 50%;
+            height: 100%;
+            width: 100%;
+        }
+
+        &::-webkit-scrollbar 
+        {
+            width: 1.75rem;
+        }
+        
+        &::-webkit-scrollbar-thumb 
+        { 
+            border: 0.65rem solid $color_invisible;
+            background-clip: padding-box;
+            border-radius: 1.5rem;
+            cursor: ns-resize;
+        }
+
+        @-moz-document url-prefix() 
+        {
+            scrollbar-width: thin;
+        }
+
+        &--scroll
+        {
+            padding: 0.75rem 0 0.75rem 0.75rem;
+
+            @-moz-document url-prefix() 
+            {
+                padding: 0.75rem;
+            }
+        }
+
+        &--no-scroll
+        {
+            padding: 0.75rem;
+        }
+
+        @media (max-width: 800px) 
+        {
+            width: 90%;
+        }
+    }
+
+    &__header
+    {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+        &--lm
+        {
+            border-bottom: 0.1rem solid $color_light_grey;
+            color: $color_cyan;
+        }
+
+        &--dm
+        {
+            border-bottom: 0.1rem solid $color_immensily_dark_grey;
+            color: $color_dark_white;
+        }
+
+        @media (max-width: 450px)
+        {
+            & h1
+            {
+                font-size: 1rem;
+            }
+        }
+
+        & div
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            height: 2rem; // Prevents change when deleteMsg.
+            gap: 0.75rem;
+        }
+    }
+
+    &__button
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 0.3rem;
+        color: $color_white;
+        font-size: 0.9rem;
+        transition: 0.2s;
+        height: 2rem;
+        width: 6.5rem;
+        cursor: pointer;
+
+        & svg
+        {
+            width: 1.15rem;
+            height: 1.15rem;
+            margin-right: 0.25rem;
+            fill: $color_white;
+        }
+
+        &:hover
+        {
+            opacity: 80%;
+        }
+        
+        &--new-tag
+        {   
+            background-color: $color_blue;   
+        }
+
+        &--del-all
+        {
+            background-color: $color_orange;
+        }
+    }
+}
