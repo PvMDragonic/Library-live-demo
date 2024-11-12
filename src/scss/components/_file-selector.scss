@@ -1,0 +1,169 @@
+@import '../utilities/variables';
+@import '../utilities/mixins';
+
+.file-selector
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18.5rem; 
+    height: 22.5rem;
+
+    // Loading text.
+    & > i
+    {
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        user-select: none; /* Chrome */
+    }
+
+    // Only used to color the loading text.
+    &--lm
+    {
+        color: $color_light_black;
+    }
+
+    &--dm
+    {
+        color: $color_white;
+    }
+
+    @media only screen and (max-width: 420px) 
+    {
+        width: 100%;
+        height: 20rem;
+    }
+
+    &__container
+    {
+        width: 100%;
+        height: 100%;
+        padding: 3rem;
+        background-size: cover;
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-size: 100% 100%;
+        border-radius: 0.5rem;
+        transition: 0.2s;
+        cursor: pointer;
+        
+        &--lm
+        {
+            border: 0.1rem solid $color_light_grey;
+            background-color: $color_very_light_grey;
+            color: $color_light_grey;
+        }
+
+        &--dm
+        {
+            border: 0.1rem solid $color_immensily_dark_grey;
+            background-color: $color_dark_grey;
+            color: $color_dark_white;
+        }
+
+        &:hover
+        {
+            opacity: 0.75;
+        }
+    }
+
+    &__drop-icon-container
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        padding: 2rem;
+        height: 100%; 
+        width: 100%;
+    }
+
+    &__buttons-container
+    {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    &__button
+    {
+        cursor: pointer;
+        color: $color_white;
+        transition: 0.2s;
+        padding: 0.5rem;
+        z-index: 1000;
+        height: 3rem;
+        width: 3rem;
+
+        border-radius: 0.4rem;
+        border: 0.15rem solid;
+    
+        &--lm
+        {
+            @include default-borders-light();
+        }
+
+        &--dm
+        {
+            @include default-borders-dark();
+        }
+        
+        &--remove-file
+        {
+            background-color: $color_red;
+            
+            &:hover
+            {
+                background-color: $color_strong_red;
+            }
+        }
+
+        // Can't re-use '--remove-file' due to svg sizing.
+        &--remove-image
+        {
+            background-color: $color_red;
+            padding: 0.25rem !important; // Weird <svg> be like.
+            
+            &:hover
+            {
+                background-color: $color_strong_red;
+            }
+        }
+
+        &--clear-image
+        {
+            background-color: $color_light_orange;
+            padding: 0.25rem !important; // Weird <svg> be like.
+            
+            &:hover
+            {
+                background-color: $color_orange;
+            }
+        }
+
+        &--select-image
+        {
+            background-color: $color_blue;
+            
+            &:hover
+            {
+                background-color: $color_strong_blue;
+            }
+        }
+
+        &--revert-image
+        {
+            background-color: $color_very_light_blue;
+            
+            &:hover
+            {
+                background-color: $color_light_blue;
+            }
+        }
+    }
+}

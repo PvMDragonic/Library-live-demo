@@ -1,0 +1,125 @@
+@import '../utilities/variables';
+
+.color-picker
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 0.25rem;
+    left: 0;
+    top: 0;
+
+    @media (max-width: 500px)
+    {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    & input
+    {
+        display: block;
+        width: 100%;
+        height: 2.25rem;
+        padding: 0.4rem;
+        border-radius: 0.2rem;
+        border: 0.1rem solid $color_light_grey;
+        background: #eee; // Bugs if I use SASS variable.
+        box-sizing: border-box;
+        text-transform: uppercase;
+        text-align: center;
+        outline: none;
+        font: inherit;
+    }
+
+    &__container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        gap: 0.5rem;
+
+        @media only screen and (max-width: 650px) 
+        {
+            font-size: 0.8rem;
+        }
+    }
+
+    // Needs a subcontainer to keep the <HtxColorInput> in check.
+    &__subcontainer
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 6rem;
+        gap: 0.15rem;
+
+        &--lm
+        {
+            & > p
+            {
+                color: $color_light_black;
+            }
+
+            & > input
+            {
+                color: $color_light_black;
+                background-color: $color_dark_white;
+                border: 0.1rem solid $color_light_grey;
+            }
+        }
+
+        &--dm
+        {
+            & > p
+            {
+                color: $color_white;
+            }
+
+            & > input
+            {
+                color: $color_white;
+                background-color: $color_regular_grey;
+                border: 0.1rem solid $color_immensily_dark_grey;
+            }
+        }
+        
+        & > p
+        {
+            white-space: nowrap;
+        }
+    }
+
+    &__button
+    {
+        width: 100%;
+        height: 2.25rem;
+        padding: 0.4rem;
+        border-radius: 0.2rem;
+        border: none;
+        color: $color_white;
+        transition: 0.2s;
+        font-size: 1rem;
+        cursor: pointer;
+        
+        &:hover
+        {
+            opacity: 80%;
+        }
+
+        &--previous
+        {
+            background: $color_blue;
+        }
+
+        &--default
+        {
+            background: $color_orange;
+        }
+    }
+}

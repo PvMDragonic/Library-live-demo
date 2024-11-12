@@ -1,0 +1,84 @@
+@import '../utilities/variables';
+
+.delete
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    height: calc(100% - 5rem);
+    min-height: 20rem;
+    z-index: 1001; // Appear over file-selector options.
+    padding: 1rem;
+    width: 100%;
+    left: 0rem;
+    top: 4.5rem;
+    gap: 3rem;
+
+    &--lm
+    {
+        background-color: $color_white;
+    }
+
+    &--dm
+    {
+        background-color: $color_mildly_dark_grey;
+    }
+
+    &__container
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    &__text
+    {
+        font-size: 20px;
+        text-align: center;
+
+        &--lm
+        {
+            color: $color_light_black;
+        }
+
+        &--dm
+        {
+            color: $color_dark_white;
+        }
+    }
+
+    &__button
+    {
+        width: 9.375rem;
+        height: 3rem;
+        font-size: 20px;
+        transition: 0.2s;
+        border: none;
+        border-radius: 0.4rem;
+        color: $color_white;
+        cursor: pointer;
+
+        &--yes
+        {
+            background-color: $color_strong_blue;
+
+            &:hover
+            {
+                background-color: $color_blue;
+            }
+        }
+
+        &--no
+        {
+            background-color: $color_orange;
+
+            &:hover
+            {
+                background-color: $color_light_orange;
+            }
+        }
+    }
+}
