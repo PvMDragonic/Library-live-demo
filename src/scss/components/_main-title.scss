@@ -1,0 +1,97 @@
+@import '../utilities/variables';
+
+.main-title
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    &--lm
+    {
+        border-bottom: 0.1rem solid $color_light_grey;
+    }
+
+    &--dm
+    {
+        border-bottom: 0.1rem solid $color_immensily_dark_grey;
+    }
+
+    &__header-container
+    {
+        width: 90%;
+        height: 2.2rem;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        align-items: center;
+        justify-content: flex-start;
+        margin-right: 0.5rem;
+    }
+
+    &__header 
+    {
+        font-size: 30px;
+        white-space: nowrap;
+
+        @media (max-width: 300px)
+        {
+            font-size: 20px;
+        }
+
+        &--lm
+        {
+            color: $color_cyan;
+        }
+
+        &--dm
+        {
+            color: $color_dark_white;
+        }
+
+        &--scroll
+        {
+            position: absolute;
+            animation: scrollText var(--scroll-duration) linear infinite;
+            left: 0.25rem;
+
+            @keyframes scrollText 
+            {
+                0% 
+                {
+                    transform: translateX(0);
+                }
+                50% 
+                {
+                    transform: translateX(var(--scroll-distance)); 
+                }
+                100% 
+                {
+                    transform: translateX(0); 
+                }
+            }
+        }
+    }
+
+    &__total-books
+    {
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+
+        &--lm
+        {
+            color: $color_cyan;
+        }
+
+        &--dm
+        {
+            color: $color_dark_white;
+        }
+
+        @media (max-width: 300px)
+        {
+            font-size: 14px;
+        }
+    }
+}
